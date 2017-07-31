@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩单API版</title>
+    <script type="text/javascript" src="/jquery/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="stuMana.js"></script>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#addInfo").click('/student',function(req,res){
+                $.get('/student',function(ans){
+                    alert('str');
+                    alert(ans);
+                    $("p").prepend("<tr><td>111` ${s}` </td></tr>");
+                });
+            });
+            $("#queryItem").click('/students',function(data,status){
+                alert("DATA" + data + "nStatus: " + status);
+            })
+//            $(function () {
+//                $('[data-toggle="popover"]').popover()
+//            });
+//            $('#addInfo').popover(options);
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <div class="t1">成绩单</div>
+        <table class="table table-bordered tab" style="width: 60% " id="myTable">
+            <tr>
+                <td>姓名</td>
+                <td>数学</td>
+                <td>语文</td>
+                <td>英语</td>
+                <td>编程</td>
+            </tr>
+        </table>
+        <div class="info">
+            <p>请输入学生信息（格式：姓名, 学号, 民族, 班级, 学科: 成绩, ...）</p>
+            <input name="sInfo" id="sInfo" type="text" placeholder="请输入学生信息" class="in1"></input>
+            <input id="addInfo" type="button" value="提交"></input>
+        </div>
+            <p>请输入学生信息（格式：学号, 学号, ...）</p>
+            <input name="items" id="items" type="text" placeholder="请输入要查询的学生学号" class="in1"></input>
+            <input id="queryItem" type="button" value="查询"></input><div class="querystu">
+        </div>
+    </form>
+</body>
+</html>
